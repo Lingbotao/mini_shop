@@ -1,6 +1,6 @@
 {
   "apps": [{
-    "name": "mini_shop",
+    "name": "server",
     "script": "production.js",
     "cwd": "F:\毕业设计\mini_shop\server",
     "exec_mode": "fork",
@@ -9,6 +9,7 @@
     "node_args": [],
     "args": [],
     "env": {
+      
     }
   }]
 }
