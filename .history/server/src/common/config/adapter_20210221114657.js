@@ -1,11 +1,10 @@
 const fileCache = require("think-cache-file");
-// const nunjucks = require("think-view-nunjucks");
-// const fileSession = require("think-session-file");
-// const mysql = require("think-model-mysql");
+const nunjucks = require("think-view-nunjucks");
+const fileSession = require("think-session-file");
+const mysql = require("think-model-mysql");
 const { Console, File, DateFile } = require("think-logger3");
 const path = require("path");
 const isDev = think.env === "development";
-const database = require('./database.js');
 
 /**
  * cache adapter config
