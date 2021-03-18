@@ -1,20 +1,33 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
     "pages/topic/topic",
     "pages/catalog/catalog",
     "pages/cart/cart",
-    "pages/ucenter/index/index"
+    "pages/ucenter/index/index",
+    "pages/brand/brand",
+    "pages/brandDetail/brandDetail",
+    "pages/category/category",
+    "pages/comment/comment",
+    "pages/commentPost/commentPost",
+    "pages/goods/goods",
+    "pages/hotGoods/hotGoods",
+    "pages/newGoods/newGoods",
+    "pages/pay/pay",
+    "pages/payResult/payResult",
+    "pages/search/search",
+    "pages/topicComment/topicComment",
+    "pages/topicDetail/topicDetail"
   ],
-  "window":{
-    "backgroundTextStyle":"dark",
+  "window": {
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "minishop",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
-  "tabBar":{
+  "tabBar": {
     "backgroundColor": "#fafafa",
     "borderStyle": "white",
     "selectedColor": "#b4082d",

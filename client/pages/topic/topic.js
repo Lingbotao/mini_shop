@@ -1,17 +1,26 @@
 // pages/topic/topic.js
+var util = require('../../utils/util.js');
+var api = require('../../config/api.js');
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    topicList: [],
+    page: 1,
+    size: 10,
+    count: 0,
+    scrollTop: 0,
+    showPage: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getTopic();
 
   },
 
@@ -62,5 +71,111 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  nextPage: function (event) {
+    var that = this;
+    if (this.data.page + 1 > that.data.count / that.data.size) {
+      return true;
+    }
+
+    that.setData({
+      "page": parseInt(that.data.page) + 1
+    });
+
+    this.getTopic();
+  },
+  getTopic: function () {
+    let that = this;
+    that.setData({
+      scrollTop: 0,
+      showPage: false,
+      topicList: []
+    });
+    // 页面渲染完成
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading',
+      duration: 2000
+    });
+
+    util.request(api.TopicList, {
+      page: that.data.page,
+      size: that.data.size
+    }).then(function (res) {
+      if (res.errno === 0) {
+        that.setData({
+          scrollTop: 0,
+          topicList: res.data.data,
+          showPage: true,
+          count: res.data.count
+        });
+      }
+      wx.hideToast();
+    });
+  },
+  prevPage: function (event) {
+    if (this.data.page <= 1) {
+      return false;
+    }
+    var that = this;
+    that.setData({
+      "page": parseInt(that.data.page) - 1
+    });
+    this.getTopic();
+  },
+  // nextPage: function (event) {
+  //   console.log();
+  //     var that = this;
+  //     if (this.data.page+1 > that.data.count / that.data.size) {
+  //         return true;
+  //     }
+
+      
+  //     that.setData({
+  //         "page": parseInt(that.data.page) + 1
+  //     });
+
+  //     this.getTopic();
+      
+  // },
+  // getTopic: function(){
+     
+  //     let that = this;
+  //      that.setData({
+  //         scrollTop: 0,
+  //         showPage: false,
+  //         topicList: []
+  //     });
+  //     // 页面渲染完成
+  //     wx.showToast({
+  //         title: '加载中...',
+  //         icon: 'loading',
+  //         duration: 2000
+  //     });
+
+  //     util.request(api.TopicList, { page: that.data.page, size: that.data.size }).then(function (res) {
+  //       if (res.errno === 0) {
+
+  //         that.setData({
+  //           scrollTop: 0,
+  //           topicList: res.data.data,
+  //           showPage: true,
+  //           count: res.data.count
+  //         });
+  //       }
+  //       wx.hideToast();
+  //     });
+      
+  // },
+  // prevPage: function (event) {
+  //     if (this.data.page <= 1) {
+  //         return false;
+  //     }
+
+  //     var that = this;
+  //     that.setData({
+  //         "page": parseInt(that.data.page) - 1
+  //     });
+  //     this.getTopic();
+  // }
 })
