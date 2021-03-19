@@ -10,16 +10,16 @@ const isDev = think.env === 'development';
  * @type {Object}
  */
 exports.cache = {
-  type: 'file',
-  common: {
-    timeout: 24 * 60 * 60 * 1000 // millisecond
-  },
-  file: {
-    handle: fileCache,
-    cachePath: path.join(think.ROOT_PATH, 'runtime/cache'), // absoulte path is necessarily required
-    pathDepth: 1,
-    gcInterval: 24 * 60 * 60 * 1000 // gc interval
-  }
+    type: 'file',
+    common: {
+        timeout: 24 * 60 * 60 * 1000 // millisecond
+    },
+    file: {
+        handle: fileCache,
+        cachePath: path.join(think.ROOT_PATH, 'runtime/cache'), // absoulte path is necessarily required
+        pathDepth: 1,
+        gcInterval: 24 * 60 * 60 * 1000 // gc interval
+    }
 };
 
 /**
@@ -27,13 +27,13 @@ exports.cache = {
  * @type {Object}
  */
 exports.model = {
-  type: 'mysql',
-  common: {
-    logConnect: isDev,
-    logSql: isDev,
-    logger: msg => think.logger.info(msg)
-  },
-  mysql: database
+    type: 'mysql',
+    common: {
+        logConnect: isDev,
+        logSql: isDev,
+        logger: msg => think.logger.info(msg)
+    },
+    mysql: database
 };
 
 /**
@@ -41,23 +41,23 @@ exports.model = {
  * @type {Object}
  */
 exports.logger = {
-  type: isDev ? 'console' : 'dateFile',
-  console: {
-    handle: Console
-  },
-  file: {
-    handle: File,
-    backups: 10, // max chunk number
-    absolute: true,
-    maxLogSize: 50 * 1024, // 50M
-    filename: path.join(think.ROOT_PATH, 'logs/app.log')
-  },
-  dateFile: {
-    handle: DateFile,
-    level: 'ALL',
-    absolute: true,
-    pattern: '-yyyy-MM-dd',
-    alwaysIncludePattern: true,
-    filename: path.join(think.ROOT_PATH, 'logs/app.log')
-  }
+    type: isDev ? 'console' : 'dateFile',
+    console: {
+        handle: Console
+    },
+    file: {
+        handle: File,
+        backups: 10, // max chunk number
+        absolute: true,
+        maxLogSize: 50 * 1024, // 50M
+        filename: path.join(think.ROOT_PATH, 'logs/app.log')
+    },
+    dateFile: {
+        handle: DateFile,
+        level: 'ALL',
+        absolute: true,
+        pattern: '-yyyy-MM-dd',
+        alwaysIncludePattern: true,
+        filename: path.join(think.ROOT_PATH, 'logs/app.log')
+    }
 };

@@ -1,5 +1,5 @@
-module.exports = class extends think.Logic{
-  indexAction(){
-    
-  }
+module.exports = class extends think.Logic {
+    indexAction() {
+
+    }
 }
