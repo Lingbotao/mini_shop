@@ -22,6 +22,24 @@
     </view>
     <view class="item no-border">
       <navigator url="url" class="a">
+        <text class="icon gift"></text>
+        <text class="txt">礼品卡</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/ucenter/collect/collect" class="a">
+        <text class="icon address"></text>
+        <text class="txt">我的收藏</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/ucenter/footprint/footprint" class="a">
+        <text class="icon security"></text>
+        <text class="txt">我的足迹</text>
+      </navigator>
+    </view>
+    <view class="item no-border">
+      <navigator url="url" class="a">
         <text class="icon kefu"></text>
         <text class="txt">会员福利</text>
       </navigator>
