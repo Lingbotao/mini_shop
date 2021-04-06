@@ -53,11 +53,11 @@ height: 28rpx;
 
 .add-btn{
 height: 70rpx;
-border:none;
+/* border:none;
 width: 168rpx;
 background: #b4282d;
 border-radius: 0;
-line-height: 70rpx;
+line-height: 70rpx; */
 color: #fff;
 font-size: 28rpx;
 }
@@ -135,13 +135,17 @@ line-height: 30rpx;
 }
 
 .content .right{
-width: 162rpx;
+width: 40px;
+margin-right: 300rpx;
+background: rgba(255,255,255, 0.8);
+color: #b69150;
+font-size: 24rpx;
 }
 
 .go{
-height: 48rpx;
+height: 65rpx;
 border:none;
-width: 162rpx;
+width: 80rpx;
 background: rgba(255,255,255, 0.8);
 border-radius: 4rpx;
 line-height: 48rpx;
