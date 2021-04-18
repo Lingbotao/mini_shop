@@ -5,7 +5,6 @@ module.exports = class extends Base {
      * 获取支付的请求参数
      */
     async prepayAction() {
-        console.log("支付")
         const orderId = this.get("orderId");
 
         const orderInfo = await this.model("order").where({id: orderId}).find();
@@ -40,7 +39,6 @@ module.exports = class extends Base {
     }
 
     async notifyAction() {
-        console.log('订单不存在');
         const WeixinSerivce = this.service("weixin", "api");
         const result = WeixinSerivce.payNotify(this.post("xml"));
         if (!result) {

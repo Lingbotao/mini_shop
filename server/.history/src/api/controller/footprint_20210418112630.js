@@ -25,7 +25,6 @@ module.exports = class extends Base {
      * 列表操作
      */
     async listAction() {
-        console.log("列表操作");
         const list = await this.model("footprint")
             .field([
                 "f.*",

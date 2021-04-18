@@ -5,7 +5,6 @@ module.exports = class extends Base {
      * 获取分类栏目数据
      */
     async indexAction() {
-        console.log("分类栏目");
         const categoryId = this.get("id");
 
         const model = this.model("category");

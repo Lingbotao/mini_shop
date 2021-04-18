@@ -11,7 +11,6 @@ module.exports = class extends Base {
      * 发表评论
      */
     async postAction() {
-        console.log("发表评论");
         const typeId = this.post("typeId");
         const valueId = this.post("valueId");
         const content = this.post("content");

@@ -5,7 +5,6 @@ module.exports = class extends think.Model {
      * 生成订单的编号order_sn
      */
     generateOrderNumber() {
-        console.log("订单可操作选项")
         const date = new Date();
         return (
             date.getFullYear() +
@@ -22,7 +21,6 @@ module.exports = class extends think.Model {
      * 获取订单可操作的选项
      */
     async getOrderHandleOption(orderId) {
-        console.log("订单可操作选项")
         const handleOption = {
             cancel: false, // 取消操作
             delete: false, // 删除操作
@@ -76,8 +74,6 @@ module.exports = class extends think.Model {
     }
 
     async getOrderStatusText(orderId) {
-        console.log("订单可操作选项")
-
         const orderInfo = await this.where({id: orderId}).find();
         let statusText = "未付款";
         switch (orderInfo.order_status) {
@@ -92,8 +88,6 @@ module.exports = class extends think.Model {
      * 更改订单支付状态
      */
     async updatePayStatus(orderId, payStatus = 0) {
-        console.log("订单可操作选项")
-
         return this.where({id: orderId})
             .limit(1)
             .update({pay_status: parseInt(payStatus)});
@@ -103,7 +97,6 @@ module.exports = class extends think.Model {
      * 根据订单编号查找订单信息
      */
     async getOrderByOrderSn(orderSn) {
-        console.log("订单可操作选项")
         if (think.isEmpty(orderSn)) {
             return {};
         }

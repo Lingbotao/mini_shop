@@ -5,7 +5,6 @@ module.exports = class extends Base {
      * 获取用户的收货地址
      */
     async listAction() {
-        console.log("收货地址")
         const addressList = await this.model("address")
             .where({user_id: this.getLoginUserId()})
             .select();
@@ -33,7 +32,6 @@ module.exports = class extends Base {
      * 获取收货地址的详情
      */
     async detailAction() {
-        console.log("地址详情")
         const addressId = this.get("id");
 
         const addressInfo = await this.model("address")
@@ -62,7 +60,6 @@ module.exports = class extends Base {
      * 添加或更新收货地址
      */
     async saveAction() {
-        console.log("更新地址")
         let addressId = this.post("id");
 
         const addressDate = {

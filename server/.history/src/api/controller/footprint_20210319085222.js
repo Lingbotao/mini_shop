@@ -7,7 +7,6 @@ module.exports = class extends Base {
      * 记录活动足迹
      */
     async deleteAction() {
-        console.log("删除足迹");
         const footprintId = this.post("footprintId");
         const userId = this.getLoginUserId();
         // 删除当天的同一个商品的足迹
@@ -25,7 +24,6 @@ module.exports = class extends Base {
      * 列表操作
      */
     async listAction() {
-        console.log("列表操作");
         const list = await this.model("footprint")
             .field([
                 "f.*",

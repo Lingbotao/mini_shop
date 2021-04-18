@@ -63,7 +63,6 @@ module.exports = class extends think.Model {
             updateData.is_finish = latestExpressInfo.isFinish;
         }
         await this.where({id: orderExpress.id}).update(updateData);
-        console.log("物流信息")
         return returnExpressInfo;
     }
 };

@@ -39,7 +39,6 @@ module.exports = class extends Base {
     }
 
     async detailAction() {
-        console.log("订单详情");
         const orderId = this.get("orderId");
         const orderInfo = await this.model("order")
             .where({user_id: this.getLoginUserId(), id: orderId})
@@ -104,7 +103,6 @@ module.exports = class extends Base {
      * 提交订单
      */
     async submitAction() {
-        console.log("提交订单");
         // 获取收货地址信息和计算运费
         const addressId = this.post("addressId");
         const checkedAddress = await this.model("address")

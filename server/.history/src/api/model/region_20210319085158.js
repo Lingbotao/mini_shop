@@ -5,7 +5,6 @@ module.exports = class extends think.Model {
      * 获取完整的省市区名称组成的字符串
      */
     async getFullRegionName(provinceId, cityId, districtId) {
-        console.log("获取省市");
         const isFullRegion = await this.checkFullRegion(
             provinceId,
             cityId,
@@ -30,7 +29,6 @@ module.exports = class extends think.Model {
      * 检查省市区信息是否完整和正确
      */
     async checkFullRegion(provinceId, cityId, districtId) {
-        console.log("省市信息是否完整");
         if (
             think.isEmpty(provinceId) ||
             think.isEmpty(cityId) ||

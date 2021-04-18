@@ -3,7 +3,6 @@ const Base = require("./base.js");
 module.exports = class extends Base {
     // 获取收藏列表
     async listAction() {
-        console.log("收藏列表");
         const typeId = this.get("typeId");
 
         const list = await this.model("collect")

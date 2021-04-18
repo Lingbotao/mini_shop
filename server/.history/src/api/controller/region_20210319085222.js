@@ -2,7 +2,6 @@ const Base = require("./base.js");
 
 module.exports = class extends Base {
     async infoAction() {
-        console.log("?????????????????")
         const region = await this.model("region").getRegionInfo(
             this.get("regionId")
         );
@@ -10,7 +9,6 @@ module.exports = class extends Base {
     }
 
     async listAction() {
-        console.log("?????????????????")
         const regionList = await this.model("region").getRegionList(
             this.get("parentId")
         );

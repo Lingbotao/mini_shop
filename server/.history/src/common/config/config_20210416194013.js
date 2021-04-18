@@ -9,4 +9,10 @@ module.exports = {
         partner_key: "", // 微信支付密钥
         notify_url: "", // 微信异步通知
     },
+    // express: {
+    //     // 快递物流信息查询使用快递鸟接口
+    //     appid: "test1706069", //对应快递鸟用户后台 用户ID
+    //     appkey: "e51eb4e3-f998-4171-917b-7cda95df4e14", // 对应快递鸟用户后台 API key
+    //     request_url: "http://api.kdniao.com/Ebusiness/EbusinessOrderHandle.aspx",
+    // },
 };

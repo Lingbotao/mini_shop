@@ -6,7 +6,6 @@ module.exports = class extends Base {
      * @returns {Promise.<{cartList: *, cartTotal: {goodsCount: number, goodsAmount: number, checkedGoodsCount: number, checkedGoodsAmount: number}}>}
      */
     async getCart() {
-        console.log("获取购物车数据")
         const cartList = await this.model("cart")
             .where({user_id: this.getLoginUserId(), session_id: 1})
             .select();
@@ -53,7 +52,6 @@ module.exports = class extends Base {
      * @returns {Promise.<*>}
      */
     async addAction() {
-        console.log("添加购物车")
         const goodsId = this.post("goodsId");
         const productId = this.post("productId");
         const number = this.post("number");
