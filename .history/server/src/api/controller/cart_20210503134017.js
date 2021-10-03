@@ -6,6 +6,7 @@ module.exports = class extends Base {
      * @returns {Promise.<{cartList: *, cartTotal: {goodsCount: number, goodsAmount: number, checkedGoodsCount: number, checkedGoodsAmount: number}}>}
      */
     async getCart() {
+        console.log("获取购物车数据")
         const cartList = await this.model("cart")
             .where({user_id: this.getLoginUserId(), session_id: 1})
             .select();
@@ -52,6 +53,7 @@ module.exports = class extends Base {
      * @returns {Promise.<*>}
      */
     async addAction() {
+        console.log("添加购物车")
         const goodsId = this.post("goodsId");
         const productId = this.post("productId");
         const number = this.post("number");
@@ -158,10 +160,18 @@ module.exports = class extends Base {
             // 添加规格名和值
             let goodsSepcifition = [];
             if (!think.isEmpty(productInfo.goods_specification_ids)) {
-                goodsSepcifition = await this.model('goods_specification').field(['nideshop_goods_specification.*', 'nideshop_specification.name']).join('nideshop_specification ON nideshop_specification.id=nideshop_goods_specification.specification_id').where({
-                    'nideshop_goods_specification.goods_id': goodsId,
-                    'nideshop_goods_specification.id': {'in': productInfo.goods_specification_ids.split('_')}
-                }).select();
+                goodsSepcifition = await this.model("goods_specification")
+                    .field(["shop_goods_specification.*", "shop_specification.name"])
+                    .join(
+                        "shop_specification ON shop_specification.id=shop_goods_specification.specification_id"
+                    )
+                    .where({
+                        "shop_goods_specification.goods_id": goodsId,
+                        "shop_goods_specification.id": {
+                            in: productInfo.goods_specification_ids.split("_"),
+                        },
+                    })
+                    .select();
             }
 
             const cartData = {
